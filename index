@@ -1,0 +1,12 @@
+export const handleDebounce = (fn,delay=2000) => {
+  let id;
+
+  return (...args) => {
+    const context = this
+    if(id) clearTimeout(id);
+
+    id = setTimeout(() =>{
+      fn.apply(context, args);
+    }, delay);
+  }
+}
